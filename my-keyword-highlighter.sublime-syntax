@@ -1,0 +1,789 @@
+%YAML 1.2
+---
+name: My Keyword Highlighter
+file_extensions: [txt, doc, log]
+hidden_file_extensions: ['.inp']
+scope: text.plain
+
+contexts:
+  main:
+    # DEFINE FORMATTING FOR ACTIONS
+    #    > actions are dfined as anything that follows "add" command
+    - match: (?:Add[[:space:]]mesh)
+      scope: variable.function
+    - match: (?:Add[[:space:]]projection)
+      scope: variable.function
+    - match: (?:Add[[:space:]]equation)
+      scope: variable.function
+    - match: (?:Add[[:space:]]face)
+      scope: variable.function      
+    - match: (?:Add[[:space:]]BC)
+      scope: variable.function
+
+      # DEFINE STYLE FOR SETTINGS
+      #   > CASE SENSITIVE
+      #   > VALUES TAKEN DIRECTLY FROM INPUT.F file (CTRL-F "lPtr")
+      #   > VALUES ARE FOLLOWED BY ":"
+      # TO DO:
+      #   1/ variable settings
+      #   2/ file paths
+      #   3/ and actions
+
+    - match: Mesh[ ]file[ ]path(?=:)
+      scope: keyword
+    - match: Face[ ]file[ ]path(?=:)
+      scope: keyword
+    - match: End[ ]nodes[ ]face[ ]file[ ]path(?=:)
+      scope: keyword
+    - match: Domain[ ]file[ ]path(?=:)
+      scope: keyword
+    - match: Coupled(?=:)
+      scope: keyword
+    - match: Domain(?=:)
+      scope: keyword
+    - match: Output(?=:)
+      scope: keyword
+    - match: LS[ ]type(?=:)
+      scope: keyword
+    - match: Save[ ]results[ ]in[ ]folder(?=:)
+      scope: keyword
+    - match: Verbose(?=:)
+      scope: keyword
+    - match: Warning(?=:)
+      scope: keyword
+    - match: Debug(?=:)
+      scope: keyword
+    - match: Colorful[ ]terminal[ ]output(?=:)
+      scope: keyword
+    - match: Use[ ]separator[ ]in[ ]the[ ]history[ ]file(?=:)
+      scope: keyword
+    - match: Continue[ ]previous[ ]simulation(?=:)
+      scope: keyword
+    - match: Simulation[ ]initialization[ ]file[ ]path(?=:)
+      scope: keyword
+    - match: Number[ ]of[ ]spatial[ ]dimensions(?=:)
+      scope: keyword
+    - match: Number[ ]of[ ]time[ ]steps(?=:)
+      scope: keyword
+    - match: Starting[ ]time[ ]step(?=:)
+      scope: keyword
+    - match: Time[ ]step[ ]size(?=:)
+      scope: keyword
+    - match: Number[ ]of[ ]initialization[ ]time[ ]steps(?=:)
+      scope: keyword
+    - match: Spectral[ ]radius[ ]of[ ]infinite[ ]time[ ]step(?=:)
+      scope: keyword
+    - match: Searched[ ]file[ ]name[ ]to[ ]trigger[ ]stop(?=:)
+      scope: keyword
+    - match: Check[ ]IEN[ ]order(?=:)
+      scope: keyword
+    - match: Save[ ]results[ ]to[ ]VTK[ ]format(?=:)
+      scope: keyword
+    - match: Name[ ]prefix[ ]of[ ]saved[ ]VTK[ ]files(?=:)
+      scope: keyword
+    - match: Increment[ ]in[ ]saving[ ]VTK[ ]files(?=:)
+      scope: keyword
+    - match: Start[ ]saving[ ]after[ ]time[ ]step(?=:)
+      scope: keyword
+    - match: Save[ ]averaged[ ]results(?=:)
+      scope: keyword
+    - match: Start[ ]averaging[ ]from[ ]zero(?=:)
+      scope: keyword
+    - match: Overwrite[ ]restart[ ]file(?=:)
+      scope: keyword
+    - match: Restart[ ]file[ ]name(?=:)
+      scope: keyword
+    - match: Increment[ ]in[ ]saving[ ]restart[ ]files(?=:)
+      scope: keyword
+    - match: Convert[ ]BIN[ ]to[ ]VTK[ ]format(?=:)
+      scope: keyword
+    - match: Simulation[ ]requires[ ]remeshing(?=:)
+      scope: keyword
+    - match: Min[ ]iterations(?=:)
+      scope: keyword
+    - match: Max[ ]iterations(?=:)
+      scope: keyword
+    - match: Tolerance(?=:)
+      scope: keyword
+    - match: Couple[ ]to[ ]genBC(?=:)
+      scope: keyword
+    - match: Couple[ ]to[ ]cplBC(?=:)
+      scope: keyword
+    - match: 0D[ ]code[ ]file[ ]path(?=:)
+      scope: keyword
+    - match: Number[ ]of[ ]unknowns(?=:)
+      scope: keyword
+    - match: Unknowns[ ]initialization[ ]file[ ]path(?=:)
+      scope: keyword
+    - match: File[ ]name[ ]for[ ]0D-3D[ ]communication(?=:)
+      scope: keyword
+    - match: File[ ]name[ ]for[ ]saving[ ]unknowns(?=:)
+      scope: keyword
+    - match: Number[ ]of[ ]user-defined[ ]outputs(?=:)
+      scope: keyword
+    - match: Use[ ]Taylor-Hood[ ]type[ ]basis(?=:)
+      scope: keyword
+    - match: Prestress(?=:)
+      scope: keyword
+    - match: Initialize(?=:)
+      scope: keyword
+    - match: Wall[ ]properties[ ]file[ ]path(?=:)
+      scope: keyword
+    - match: Coupling[ ]with[ ]mechanics(?=:)
+      scope: keyword
+    - match: Initialize[ ]RCR[ ]from[ ]flow(?=:)
+      scope: keyword
+    - match: Equation(?=:)
+      scope: keyword
+    - match: Fluid[ ]density(?=:)
+      scope: keyword
+    - match: Density(?=:)
+      scope: keyword
+    - match: Solid[ ]density(?=:)
+      scope: keyword
+    - match: Elasticity[ ]modulus(?=:)
+      scope: keyword
+    - match: Poisson[ ]ratio(?=:)
+      scope: keyword
+    - match: Viscosity(?=:)
+      scope: keyword
+    - match: Conductivity(?=:)
+      scope: keyword
+    - match: Force_X(?=:)
+      scope: keyword
+    - match: Force_Y(?=:)
+      scope: keyword
+    - match: Force_Z(?=:)
+      scope: keyword
+    - match: Backflow[ ]stabilization[ ]coefficient(?=:)
+      scope: keyword
+    - match: Source[ ]term(?=:)
+      scope: keyword
+    - match: Mass[ ]damping(?=:)
+      scope: keyword
+    - match: Shell[ ]thickness(?=:)
+      scope: keyword
+    - match: Momentum[ ]stabilization[ ]coefficient(?=:)
+      scope: keyword
+    - match: Continuity[ ]stabilization[ ]coefficient(?=:)
+      scope: keyword
+    - match: Preconditioner(?=:)
+      scope: keyword
+    - match: Use[ ]Trilinos[ ]for[ ]assembly(?=:)
+      scope: keyword
+    - match: Absolute[ ]tolerance(?=:)
+      scope: keyword
+    - match: Krylov[ ]space[ ]dimension(?=:)
+      scope: keyword
+    - match: NS-GM[ ]max[ ]iterations(?=:)
+      scope: keyword
+    - match: NS-CG[ ]max[ ]iterations(?=:)
+      scope: keyword
+    - match: NS-GM[ ]tolerance(?=:)
+      scope: keyword
+    - match: NS-CG[ ]tolerance(?=:)
+      scope: keyword
+    - match: Absolute[ ]tolerance(?=:)
+      scope: keyword
+    - match: Type(?=:)
+      scope: keyword
+    - match: Traction[ ]values[ ]file[ ]path(?=:)
+      scope: keyword
+    - match: Traction[ ]multiplier(?=:)
+      scope: keyword
+    - match: Effective[ ]direction(?=:)
+      scope: keyword
+    - match: Time[ ]dependence(?=:)
+      scope: keyword
+    - match: Value(?=:)
+      scope: keyword
+    - match: Temporal[ ]values[ ]file[ ]path(?=:)
+      scope: keyword
+    - match: Ramp[ ]function(?=:)
+      scope: keyword
+    - match: Fourier[ ]coefficients[ ]file[ ]path(?=:)
+      scope: keyword
+    - match: RCR[ ]values(?=:)
+      scope: keyword
+    - match: Distal[ ]pressure(?=:)
+      scope: keyword
+    - match: Initial[ ]pressure(?=:)
+      scope: keyword
+    - match: Spatial[ ]values[ ]file[ ]path(?=:)
+      scope: keyword
+    - match: BCT[ ]file[ ]path(?=:)
+      scope: keyword
+    - match: Temporal[ ]and[ ]spatial[ ]values[ ]file[ ]path(?=:)
+      scope: keyword
+    - match: Stiffness(?=:)
+      scope: keyword
+    - match: Damping(?=:)
+      scope: keyword
+    - match: Apply[ ]along[ ]normal[ ]direction(?=:)
+      scope: keyword
+    - match: Impose[ ]flux(?=:)
+      scope: keyword
+    - match: Zero[ ]out[ ]perimeter(?=:)
+      scope: keyword
+    - match: Impose[ ]on[ ]state[ ]variable[ ]integral(?=:)
+      scope: keyword
+    - match: Profile(?=:)
+      scope: keyword
+    - match: Spatial[ ]profile[ ]file[ ]path(?=:)
+      scope: keyword
+    - match: Weakly[ ]applied(?=:)
+      scope: keyword
+    - match: Penalty[ ]parameter(?=:)
+      scope: keyword
+    - match: Penalty[ ]parameter[ ]\(tangential\)(?=:)
+      scope: keyword
+    - match: Penalty[ ]parameter[ ]\(normal\)(?=:)
+      scope: keyword
+    - match: Shell[ ]BC[ ]type(?=:)
+      scope: keyword
+    - match: Follower[ ]pressure[ ]load(?=:)
+      scope: keyword
+    - match: Undeforming[ ]Neu[ ]face(?=:)
+      scope: keyword
+    - match: Initial[ ]displacements[ ]file[ ]path(?=:)
+      scope: keyword
+    - match: Prestress[ ]file[ ]path(?=:)
+      scope: keyword
+    - match: Time[ ]dependence(?=:)
+      scope: keyword
+    - match: Max[ ]edge[ ]size(?=:)
+      scope: keyword
+    - match: val(?=:)
+      scope: keyword
+    - match: Min[ ]dihedral[ ]angle(?=:)
+      scope: keyword
+    - match: Max[ ]radius[ ]ratio(?=:)
+      scope: keyword
+    - match: Frequency[ ]for[ ]copying[ ]data(?=:)
+      scope: keyword
+    - match: Remesh[ ]frequency(?=:)
+      scope: keyword
+    - match: Electrophysiology[ ]model(?=:)
+      scope: keyword
+    - match: Conductivity[ ]\(iso\)(?=:)
+      scope: keyword
+    - match: Conductivity[ ]\(ani\)(?=:)
+      scope: keyword
+    - match: Myocardial[ ]zone(?=:)
+      scope: keyword
+    - match: Amplitude(?=:)
+      scope: keyword
+    - match: Start[ ]time(?=:)
+      scope: keyword
+    - match: Duration(?=:)
+      scope: keyword
+    - match: Cycle[ ]length(?=:)
+      scope: keyword
+    - match: Time[ ]step[ ]for[ ]integration(?=:)
+      scope: keyword
+    - match: ODE[ ]solver(?=:)
+      scope: keyword
+    - match: Feedback[ ]parameter[ ]for[ ]stretch-activated-currents(?=:)
+      scope: keyword
+    - match: Maximum[ ]iterations(?=:)
+      scope: keyword
+    - match: Absolute[ ]tolerance(?=:)
+      scope: keyword
+    - match: Relative[ ]tolerance(?=:)
+      scope: keyword
+    - match: c1(?=:)
+      scope: keyword
+    - match: c2(?=:)
+      scope: keyword
+    - match: a4(?=:)
+      scope: keyword
+    - match: b4(?=:)
+      scope: keyword
+    - match: a6(?=:)
+      scope: keyword
+    - match: b6(?=:)
+      scope: keyword
+    - match: kappa(?=:)
+      scope: keyword
+    - match: C(?=:)
+      scope: keyword
+    - match: bf(?=:)
+      scope: keyword
+    - match: bt(?=:)
+      scope: keyword
+    - match: bfs(?=:)
+      scope: keyword
+    - match: a(?=:)
+      scope: keyword
+    - match: b(?=:)
+      scope: keyword
+    - match: a4f(?=:)
+      scope: keyword
+    - match: b4f(?=:)
+      scope: keyword
+    - match: a4s(?=:)
+      scope: keyword
+    - match: b4s(?=:)
+      scope: keyword
+    - match: afs(?=:)
+      scope: keyword
+    - match: bfs(?=:)
+      scope: keyword
+    - match: k(?=:)
+      scope: keyword
+    - match: Fiber[ ]reinforcement[ ]stress(?=:)
+      scope: keyword
+    - match: Dilational[ ]penalty[ ]model(?=:)
+      scope: keyword
+    - match: Limiting[ ]high[ ]shear-rate[ ]viscosity(?=:)
+      scope: keyword
+    - match: Limiting[ ]low[ ]shear-rate[ ]viscosity(?=:)
+      scope: keyword
+    - match: Shear-rate[ ]tensor[ ]multiplier[ ]\(lamda\)(?=:)
+      scope: keyword
+    - match: Power-law[ ]index[ ]\(n\)(?=:)
+      scope: keyword
+    - match: Asymptotic[ ]viscosity[ ]parameter(?=:)
+      scope: keyword
+    - match: Yield[ ]stress[ ]parameter(?=:)
+      scope: keyword
+    - match: Low[ ]shear-rate[ ]threshold(?=:)
+      scope: keyword
+    - match: Velocity(?=:)
+      scope: keyword
+    - match: Pressure(?=:)
+      scope: keyword
+    - match: Temperature(?=:)
+      scope: keyword
+    - match: Action_potential(?=:)
+      scope: keyword
+    - match: Acceleration(?=:)
+      scope: keyword
+    - match: Displacement(?=:)
+      scope: keyword
+    - match: Area(?=:)
+      scope: keyword
+    - match: Volume(?=:)
+      scope: keyword
+    - match: WSS(?=:)
+      scope: keyword
+    - match: Traction(?=:)
+      scope: keyword
+    - match: Vorticity(?=:)
+      scope: keyword
+    - match: Vortex(?=:)
+      scope: keyword
+    - match: Strain_invariants(?=:)
+      scope: keyword
+    - match: Energy_flux(?=:)
+      scope: keyword
+    - match: Heat_flux(?=:)
+      scope: keyword
+    - match: Absolute_velocity(?=:)
+      scope: keyword
+    - match: Fiber_direction(?=:)
+      scope: keyword
+    - match: Fiber_alignment(?=:)
+      scope: keyword
+    - match: Stress(?=:)
+      scope: keyword
+    - match: Cauchy_stress(?=:)
+      scope: keyword
+    - match: VonMises_stress(?=:)
+      scope: keyword
+    - match: Jacobian(?=:)
+      scope: keyword
+    - match: Def_grad(?=:)
+      scope: keyword
+    - match: Strain(?=:)
+      scope: keyword
+    - match: Divergence(?=:)
+      scope: keyword
+    - match: Viscosity(?=:)
+      scope: keyword
+    - match: Set[ ]mesh[ ]as[ ]fibers(?=:)
+      scope: keyword
+    - match: Project[ ]from[ ]face(?=:)
+      scope: keyword
+    - match: Projection[ ]tolerance(?=:)
+      scope: keyword
+    - match: Stimulus(?=:)
+      scope: keyword
+
+    # PYTHON STYLE COMMENTS
+    - match: \#.*$
+      scope: comment
+
+    # DEFINE RECOGNIZEABLE FILE TYPES
+    #   > HIGHLIGHTS ENTIRE STRING INCLUDING ANY OF FOLLOWING:
+    #     1. VTU
+    #     2. TXT
+    #     3. DAT
+    #     4. VTP
+
+    - match: (?<=:[ ]).*vtu
+      scope: string
+    - match: (?<=:[ ]).*txt
+      scope: string
+    - match: (?<=:[ ]).*dat
+      scope: string
+    - match: (?<=:[ ]).*vtp
+      scope: string
+
+    # DEFINE ACCEPTABLE INPUT STRINGS
+    #   > CASE SENSITIVE
+    #   > VALUES TAKEN DIRECTLY FROM INPUT.F file (CTRL-F "Case")
+    #   > VALUES ARE PRECEDED BY ":" AND FOLLOWED BY EITHER SPACE OR \N
+
+    - match: (?<=:[ ])fluid([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])heatF([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])dyeTransport([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])scalarTransport([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])AD([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])heatS([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])laplace([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])poisson([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])lElas([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])struct([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])ustruct([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])shell([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])CMM([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])inflate([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])inf([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])prestress([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])prest([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])FSI([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])mesh([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])CEP([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])active[[:space:]]stress([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])active[[:space:]]strain([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])active_stress([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])active_strain([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])stokes([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])ns([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])NS([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])bpn([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])bipn([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])gmres([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])GMRES([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])ctmp([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])cg([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])bicg([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])bicgs([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])BICG([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])BICGS([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])fsils([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])FSILS([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])svfsi([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])rcs([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])RCS([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])row-column-scaling([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])trilinos-diagonal([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])trilinos-blockjacobi([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])blockjacobi([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])trilinos-ilu([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])trilinos-ilut([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])trilinos-ic([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])trilinos-ict([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])trilinos-ml([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])trilinos-ml([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Dirichlet([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Dir([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Neumann([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Neu([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Traction([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Trac([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Robin([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Rbn([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Coupled[[:space:]]Momentum([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])CMM([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Steady([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Unsteady([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Coupled([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Resistance([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])RCR([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Windkessel([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Spatial([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])General([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Flat([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Parbolic([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])User_defined([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Fixed([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])fixed([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Clamped([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])clamped([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Hinged([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])hinged([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Free([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])free([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])volumetric([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])vol([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])internal([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])int([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])traction([ ]|\n)
+      scope: variable.parameter      
+    - match: (?<=:[ ])trac([ ]|\n)
+      scope: variable.parameter     
+    - match: (?<=:[ ])neumann([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])neu([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])pressure([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])steady([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])unsteady([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])spatial([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])general([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Tetgen([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Meshsim([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])ap([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])aliev-panfilov([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])bo([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])bueno-orovio([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])fn([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])fitzhugh-nagumo([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])ttp([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])TTP([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])tentusscher-panfilov([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])epi([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])epicardium([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])endo([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])endocardium([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])pfib([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])purkinje([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])myo([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])mid-myo([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])myocardium([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])fe([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])euler([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])explicit([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])rk([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])RK([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])rk4([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])runge([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])cn([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])cn2([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])implicit([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])lin([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])linear([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])stVK([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])stVenantKirchhoff([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])m-stVK([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])modified-stVK([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])modified-stVenantKirchhoff([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])nHK([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])nHK91([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])neoHookean([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])neoHookeanSimo91([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])MR([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Mooney-Rivlin([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])HGO([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])HGO-decoupled([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])HGO-d([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])HGO-ma([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])HGO-modified([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Guccione([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Gucci([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])HO([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Holzapfel([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])HO-decoupled([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])HO-d([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])HO-ma([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])HO-modified([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])quad([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Quad([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])quadratic([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Quadratic([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Parabolic([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Para([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])ST91([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Simo-Taylor91([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])M94([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Miehe94([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])const([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])newtonian([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])carreau-yasuda([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])cy([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])cassons([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Cassons([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])cass([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Cass([ ]|\n)
+      scope: variable.parameter
+
+    # DEFINE BOOLEANS
+    #   > CASE SENSITIVE
+    #   > t and f
+    #   > VALUES ARE PRECEDED BY ":" AND SANDWICHED BY SPACES OR \N
+    - match: (?<=:[ ])t([ ]|\n)
+      scope: constant.numeric
+    - match: (?<=:[ ])f([ ]|\n)
+      scope: constant.numeric
+    - match: (?:)[-+]?([0-9]*[.])?[0-9]+([eDE][-+]?\d+)?
+      scope: constant.numeric
+
+    # DEFINE REMAINING STRINGS
+    #    > STRINGS THAT FOLLOW COLONS THAT ARE OTHERWISE NOT CODED ABOVE
+    - match: (?<=:[ ]).*?([ ]|\n)
+      scope: entity.other.attribute-name
