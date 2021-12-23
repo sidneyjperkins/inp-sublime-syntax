@@ -9,15 +9,15 @@ contexts:
   main:
     # DEFINE FORMATTING FOR ACTIONS
     #    > actions are dfined as anything that follows "add" command
-    - match: (?:Add[[:space:]]mesh)
+    - match: Add[ ]mesh(?=:)
       scope: variable.function
-    - match: (?:Add[[:space:]]projection)
+    - match: Add[ ]projection(?=:)
       scope: variable.function
-    - match: (?:Add[[:space:]]equation)
+    - match: Add[ ]equation(?=:)
       scope: variable.function
-    - match: (?:Add[[:space:]]face)
+    - match: Add[ ]face(?=:)
       scope: variable.function      
-    - match: (?:Add[[:space:]]BC)
+    - match: Add[ ]BC(?=:)
       scope: variable.function
 
       # DEFINE STYLE FOR SETTINGS
@@ -340,6 +340,8 @@ contexts:
     - match: Limiting[ ]low[ ]shear-rate[ ]viscosity(?=:)
       scope: keyword
     - match: Shear-rate[ ]tensor[ ]multiplier[ ]\(lamda\)(?=:)
+      scope: keyword
+    - match: Shear-rate[ ]tensor[ ]exponent[ ]\(a\)(?=:)
       scope: keyword
     - match: Power-law[ ]index[ ]\(n\)(?=:)
       scope: keyword
@@ -780,7 +782,7 @@ contexts:
       scope: constant.numeric
     - match: (?<=:[ ])f([ ]|\n)
       scope: constant.numeric
-    - match: (?:)[-+]?([0-9]*[.])?[0-9]+([eDE][-+]?\d+)?
+    - match: (?<=:[\s+])(?<=:[ ])(\s*)[-+]?([0-9]*[.])?[0-9]+([eDE][-+]?\d+)?([ ]|\n)
       scope: constant.numeric
 
     # DEFINE REMAINING STRINGS
