@@ -1,6 +1,7 @@
 # inp-sublime-syntax
 Author: Sidney Perkins | sidney.j.perkins@gmail.com
-Date:   22 December 2021
+
+Date:   23 December 2021
 
 ## OBJECTIVE:
 The objective of this project is to provide syntax files for use in Sublime for enhancing the legibility of .inp files used for svFSI simulations.
