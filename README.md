@@ -42,14 +42,7 @@ Test the code out by opening a .inp file. The very first time you use the style,
 ## WHAT EXACTLY DOES THE SYNTAX FILE DO?
 Good question. Though .inp files  are not written in a programming language, they require specific formatting for svFSI to properly run. By cleverly examining the source code and example uses of svFSI, you can get a good sense for the appropriate formatting. However, it's still relatively easy to make typographical errors in editing .inp files. .inp file specific syntax definitions make files more legible and increase the liklihood of identifying typos before pushing your simulations to the server, hopefully saving you some time and stress.
     
-There are seven variable types defined by the syntax file.
-(1) Keyword
-(2) Number
-(3) File
-(4) Command
-(5) Recognized arguments
-(6) Otherwise undefined text
-(7) Comments
+There are seven variable types defined by the syntax file: (1) keywords, (2) numbers, (3) files, (4) commands, (5) recognized arguments,(6) otherwise undefined text, and (7) comments.
   
 More below:
 
