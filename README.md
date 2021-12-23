@@ -2,17 +2,17 @@
 Author: Sidney Perkins | sidney.j.perkins@gmail.com
 Date:   22 December 2021
 
-OBJECTIVE:
+## OBJECTIVE:
     The objective of this project is to provide syntax files for use in Sublime for enhancing the legibility of .inp files used for svFSI simulations.
 
-CONTACT:
+## CONTACT:
     If you have any problems, questions, ideas or suggestions, please contact me above at my email address.
 
-WEBSITES:
+## WEBSITES:
     (1) To install the latest version of svFSI, please visit: https://github.com/SimVascular/svFSI
     (2) To find helpful demos of finite element modeling using the svFSI solver, please visit: https://github.com/SimVascular/svFSI-Tests
 
-GIT:
+## GIT:
     To download the latest source off the GIT server, do this:
 
         cd /Users/Usrname/Library/Application Support/Sublime Text 3/Packages/User/
@@ -23,7 +23,7 @@ GIT:
     
 You'll now have the syntax file from the git repository in your Sublime Text 3 Application Support folder. Restart Sublime and it should be ready to use with .inp files.
 
-NO LIKEY GIT:
+## NO LIKEY GIT:
     If you're like me and are lazy, you may just want to copy pasta the files into the appropriate folder without futzing around in terminal. Totally fine! No judgement. Find the directory that sublime uses for syntax files. To do this:
     
         (1) Open Sublime Text
@@ -38,7 +38,7 @@ Test the code out by opening a .inp file. The very first time you use the style,
         
         View > Syntax > my-keyword-highlighter
 
-WHAT EXACTLY DOES THE SYNTAX FILE DO?
+## WHAT EXACTLY DOES THE SYNTAX FILE DO?
     Good question. Though .inp files  are not written in a programming language, they require specific formatting for svFSI to properly run. By cleverly examining the source code and example uses of svFSI, you can get a good sense for the appropriate formatting. However, it's still relatively easy to make typographical errors in editing .inp files. .inp file specific syntax definitions make files more legible and increase the liklihood of identifying typos before pushing your simulations to the server, hopefully saving you some time and stress.
     
 There are six variable types defined by the syntax file.
@@ -64,8 +64,8 @@ OTHERWISE UNDEFINED TEXT is reserved for text that neither contains the aforemen
 
 COMMENTS are denoted by the hash ("#") and change the formatting for all characters in a given line that follow the hash symbol. COMMENTS are denoted in YAML using "scope: comment"
 
-A BRIEF NOTE ON ELEGANCE (OR LACK THEREOF):
+## A BRIEF NOTE ON ELEGANCE (OR LACK THEREOF):
    In general, I want the syntax defintions to over-call formatting issues (ie the syntax definitions are strict). To determine formatting rules, I manually combed through variables that appeared in or around instances of "lPtr" and "CASE" in the readfiles.f script. Due to my illiteracy in reading Fortran, I took the precaution of assuming that all string variables fed to the svFSI source code were case sensitive. There are obvious exceptions in the online example repository (https://github.com/SimVascular/svFSI-Tests), which have been manually added to the syntax file.
 
-ENJOY!
+## ENJOY!
     I hope this saves you some time and makes your experience more enjoyable.
