@@ -17,13 +17,13 @@ If you have any problems, questions, ideas or suggestions, please contact me abo
 ## GIT:
 To download the latest source off the GIT server, do this:
 
-    cd /Users/Usrname/Library/Application Support/Sublime Text 3/Packages/User/
+    cd /Users/Usrname/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
 
     git clone https://github.com/sidneyjperkins/inp-sublime-syntax
     
+You'll now have the syntax file from the git repository in your Sublime Text 3 Application Support folder. Restart Sublime and it should be ready to use with .inp files. Optionally, copy the files to the parent directory.
+
     mv * ../
-    
-You'll now have the syntax file from the git repository in your Sublime Text 3 Application Support folder. Restart Sublime and it should be ready to use with .inp files.
 
 ## NO LIKEY GIT:
 If you're like me and are lazy, you may just want to copy pasta the files into the appropriate folder without futzing around in terminal. Totally fine! No judgement. Find the directory that sublime uses for syntax files. To do this:
