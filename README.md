@@ -64,5 +64,9 @@ More below:
 ## A BRIEF NOTE ON ELEGANCE (OR LACK THEREOF):
 In general, I want the syntax defintions to over-call formatting issues (ie the syntax definitions are strict). To determine formatting rules, I manually combed through variables that appeared in or around instances of "lPtr" and "CASE" in the readfiles.f script. Due to my illiteracy in reading Fortran, I took the precaution of assuming that all string variables fed to the svFSI source code were case sensitive. There are obvious exceptions in the online example repository (https://github.com/SimVascular/svFSI-Tests), which have been manually added to the syntax file.
 
+## NOTE ON WHITESPACE & FUTURE WORK:
+In general, there can only be one whitespace character following a colon and preceding formatted text. The exception is for numeric values. Numeric values contained within parentheses, while formatted as numbers, are only formatted as such if they follow a colon with one space. Currently a whitespace in the middle of a filename does not alter the formatting of the filename, which is a known bug.
+Future versions will improve consistency with how whitespace affects syntax formatting.
+
 ## ENJOY!
 I hope this saves you some time and makes your experience more enjoyable.

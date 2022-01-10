@@ -19,6 +19,8 @@ contexts:
       scope: variable.function      
     - match: Add[ ]BC(?=:)
       scope: variable.function
+    - match: Add[ ]BF(?=:)
+      scope: variable.function
 
       # DEFINE STYLE FOR SETTINGS
       #   > CASE SENSITIVE
@@ -411,6 +413,20 @@ contexts:
       scope: keyword
     - match: Stimulus(?=:)
       scope: keyword
+    - match: Fiber[ ]direction(?=:)
+      scope: keyword
+    - match: Mesh[ ]scale[ ]factor(?=:)
+      scope: keyword
+    - match: Constitutive[ ]model(?=:)
+      scope: keyword
+    - match: Fiber[ ]direction[ ]file[ ]path(?=:)
+      scope: keyword
+    - match: Initial[ ]velocities[ ]file[ ]path(?=:)
+      scope: keyword
+    - match: Initial[ ]pressures[ ]file[ ]path(?=:)
+      scope: keyword
+    - match: Set[ ]mesh[ ]as[ ]shell(?=:)
+      scope: keyword
 
     # PYTHON STYLE COMMENTS
     - match: \#.*$
@@ -430,6 +446,8 @@ contexts:
     - match: (?<=:[ ]).*dat
       scope: string
     - match: (?<=:[ ]).*vtp
+      scope: string
+    - match: (?<=:[ ]).*exe
       scope: string
 
     # DEFINE ACCEPTABLE INPUT STRINGS
@@ -530,6 +548,8 @@ contexts:
     - match: (?<=:[ ])blockjacobi([ ]|\n)
       scope: variable.parameter
     - match: (?<=:[ ])trilinos-ilu([ ]|\n)
+      scope: variable.parameter
+    - match: (?<=:[ ])Trilinos-ILUT([ ]|\n)
       scope: variable.parameter
     - match: (?<=:[ ])trilinos-ilut([ ]|\n)
       scope: variable.parameter
@@ -763,6 +783,8 @@ contexts:
       scope: variable.parameter
     - match: (?<=:[ ])carreau-yasuda([ ]|\n)
       scope: variable.parameter
+    - match: (?<=:[ ])Carreau-Yasuda([ ]|\n)
+      scope: variable.parameter
     - match: (?<=:[ ])cy([ ]|\n)
       scope: variable.parameter
     - match: (?<=:[ ])cassons([ ]|\n)
@@ -782,10 +804,13 @@ contexts:
       scope: constant.numeric
     - match: (?<=:[ ])f([ ]|\n)
       scope: constant.numeric
-    - match: (?<=:[\s+])(?<=:[ ])(\s*)[-+]?([0-9]*[.])?[0-9]+([eDE][-+]?\d+)?([ ]|\n)
+    - match: (?<=:[\s+])(?<=:[ ])(\s*)[-+]?([0-9]*[.])?[0-9]+([eDE][-+]?\d+)?([ ]|\n|,|\))
+      scope: constant.numeric
+    - match: (?<=:[ ])\(.*(\))
       scope: constant.numeric
 
     # DEFINE REMAINING STRINGS
     #    > STRINGS THAT FOLLOW COLONS THAT ARE OTHERWISE NOT CODED ABOVE
     - match: (?<=:[ ]).*?([ ]|\n)
       scope: entity.other.attribute-name
+
